@@ -1,0 +1,76 @@
+package interview;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class Interview {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		List<String> list = Arrays.asList("Java", "Programming1", "Language", "Stream", "API");
+		list.stream().sorted(Comparator.comparing(String::length).reversed()).findFirst().get();
+//		Map<Integer, List<String>>map =list.stream().collect(Collectors.groupingBy(String::length, Collectors.toList()));
+//		map.entrySet().stream().sorted(Map.Entry.comparingByKey().reversed());
+////		.forEach(System.out::println);
+	
+	
+		String st = "Hello world java streams";
+		
+		List<Employee> employees = Arrays.asList(
+			    new Employee("John",    "IT",      90000),
+			    new Employee("Jane",    "IT",      85000),
+			    new Employee("Bob",     "IT",      70000),
+			    new Employee("Alice",   "IT",      60000),
+			    new Employee("Charlie", "HR",      75000),
+			    new Employee("David",   "HR",      80000),
+			    new Employee("Eve",     "HR",      55000),
+			    new Employee("Frank",   "HR",      50000),
+			    new Employee("Grace",   "Finance", 95000),
+			    new Employee("Henry",   "Finance", 88000),
+			    new Employee("Ivy",     "Finance", 72000),
+			    new Employee("Jack",    "Finance", 65000)
+			);
+		
+		employees.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.collectingAndThen(Collectors.toList(), l-> l.stream().sorted(Comparator.comparing(Employee::getSalary).reversed()).limit(3).collect(Collectors.toList()))))
+		.entrySet().forEach(System.out::println);
+		
+//		Arrays.stream(arr).map(m-> m.chars().mapToObj(c -> (char)c)).distinct().forEach(System.out::println);;;
+////		st.chars().mapToObj(c -> (char)c).distinct().forEach(System.out::println);;
+//		Employee e = new Employee();
+//		
+//		Map<Employee, Integer>map = new HashMap<>();
+//		
+//		
+//		map.put(e, 1);
+//		
+		
+//		
+//		StringBuilder key = new StringBuilder("hello"); 
+//		HashMap<StringBuilder, String> map = new HashMap<>();
+//		
+//		 map.put(key, "world");
+//		key.append("123"); 
+//		System.out.println(key);
+//		String value = map.get(key);
+//		System.out.println(value);
+//		String key = new String("hello"); 
+//		HashMap<String, String> map = new HashMap<>();
+//		
+//		 map.put(key, "world");
+//		key.concat("123"); 
+//		System.out.println(key);
+//		String value = map.get(key);
+//		System.out.println(value);
+		
+	}
+	
+
+}

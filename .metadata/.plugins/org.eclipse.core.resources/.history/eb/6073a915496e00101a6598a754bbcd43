@@ -1,0 +1,34 @@
+package leetcode;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class MinimiumSlidingWindow76 {
+
+	public String minWindow(String s, String t) {
+
+		Map<Character, Integer>map = new HashMap<>();
+		int left =0;
+		int minLenght = 0;
+        for(int i = 0;i<s.length()-1; i++){
+        	char c = s.charAt(i);
+        	if(map.containsKey(c)) {
+        		left = Math.max(map.get(c), i+1);
+        	}
+        	map.put(c, i);
+        	minLenght = Math.max(minLenght,i-left+1 );
+        	
+        }
+		return  s.substring(left, left + minLenght);;
+        
+    }
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		MinimiumSlidingWindow76 m = new MinimiumSlidingWindow76();
+		String s = "ADOBECODEBANC", t = "ABC";
+		String minWindow = m.minWindow(s, t);
+		System.out.println(minWindow);
+
+	}
+
+}

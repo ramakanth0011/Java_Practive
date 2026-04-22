@@ -1,0 +1,10 @@
+package com.example.demo.co.service;
+
+public class PractiseService {
+
+	public String create(String a, String b) {
+
+		return "my name is leena";
+	}
+
+}

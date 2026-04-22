@@ -1,0 +1,33 @@
+package string;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class RomantoInteger13 {
+	 public int romanToInt(String s){
+		 int result = 0;
+		 Map<Character, Integer> map = new HashMap<>();
+		 map.put('I', 1);
+		 map.put('V', 5);
+		 map.put('X', 10);
+		 map.put('L', 50);
+		 map.put('C', 100);
+		 map.put('O', 500);
+		 map.put('M', 1000);
+		 
+		 for(int i=1; i<=s.length()-1; i++) {
+			 Integer integer = map.get(s.charAt(i));
+			 char prev
+			if() {
+				
+			}
+		 }
+		return result;
+	        
+	    }
+	 public static void main(String[]args) {
+		 RomantoInteger13 s = new RomantoInteger13();
+		 System.out.println(s.romanToInt("III"));
+	 }
+
+}

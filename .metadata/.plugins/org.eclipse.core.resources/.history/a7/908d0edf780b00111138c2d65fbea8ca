@@ -1,0 +1,39 @@
+package twopointer;
+
+public class TwoPointer {
+
+	public static int[] moveZero(int []nums) {
+		
+		int start = 0;
+		int end = nums.length-1;
+		int mid = 0;
+		while(mid<=end) {
+			if(nums[mid]==2) {
+				swap(nums, start, end);
+				end--;
+			}else if(nums[mid]==0) {
+				swap(nums, start, mid);
+				mid++;
+				start++;
+				
+			}else {
+				mid++;
+			}
+		}
+		return nums;
+	}
+	public static int[] swap(int[] nums,int a, int b) {
+		
+		int temp = nums[a];
+		nums[a] = nums[b];
+		nums[b] = temp;
+		
+		return nums;
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,17 @@
+package interview;
+
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+class Employee {
+    public static void main(String[]args) {
+    	
+
+    	String input = "House Keeping";
+    	input.chars().mapToObj(c -> (char)c).collect(Collectors.groupingBy(Function.identity(),Collectors.counting())).entrySet().stream().filter(f-> f.getValue()>1).forEach(System.out::println);;;
+
+
+//    	Arrays.chars().maptoObject(c-> (char) c).collect(Collectors.groupingBy(Function.Indentity, Collectors.counting()).entrySet().forEach(System.out::println));
+    	 
+    }
+}

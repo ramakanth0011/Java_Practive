@@ -1,0 +1,27 @@
+package interview;
+
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+class Employee {
+    public static void main(String[]args) {
+    	
+//    	List<String> list =Arrays.asList("A","B","C");
+//
+//    	list.add("D");
+//    	
+//    	System.out.println(list);
+    	
+    	List<String> list =List.of("A","B","C");
+    	list.add("d");
+    	 
+    	String input = "House Keeping";
+    	input.chars().mapToObj(c->(char)c).collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet().forEach(System.out::println);
+    	 
+
+
+//    	Arrays.chars().maptoObject(c-> (char) c).collect(Collectors.groupingBy(Function.Indentity, Collectors.counting()).entrySet().forEach(System.out::println));
+    	 
+    }
+}

@@ -1,0 +1,35 @@
+package immutable;
+
+public final class ImmutableDemo {
+	
+	private final int id = 0;
+	private final String name = "";
+	private final String phone = "";
+	
+	public ImmutableDemo(int id, String name, String phone) {
+		id =this.id;
+		name = this.name;
+		phone = this.phone;
+		
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	@Override
+	public String toString() {
+		return "ImmutableDemo [id=" + id + ", name=" + name + ", phone=" + phone + "]";
+	}
+	
+	
+	
+}

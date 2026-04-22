@@ -1,0 +1,21 @@
+package com.example.demo.service;
+
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entity.Employee;
+import com.example.demo.repository.EmployeeRepository;
+
+@Service
+public class EmployeeService {
+
+	private final EmployeeRepository repository;
+
+	public EmployeeService(EmployeeRepository repository) {
+		this.repository = repository;
+	}
+
+	public Employee getEmployeByName(int id, String name) {
+
+		return repository.createQuery(id, name);
+	}
+}

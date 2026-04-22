@@ -1,0 +1,15 @@
+package com.example.demo.co.entity;
+
+import jakarta.persistence.Entity;
+import lombok.Data;
+
+@Entity
+@Data
+public class Employee {
+	
+	private int empId;
+	private String name;
+	private double salary;
+	
+
+}

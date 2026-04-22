@@ -1,0 +1,191 @@
+package stream;
+
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
+
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		  Employee emp = new Employee("Ram", 1, 500000, "IT", "XYZ");
+	        Employee emp1 = new Employee("Leena", 2, 25000, "IT", "XYZ");
+	        Employee emp2 = new Employee("Nanda", 4, 50000, "IT", "ABC");
+	        Employee emp3 = new Employee("Aayu", 3, 10000, "Finance", "XYZ");
+	        Employee emp4 = new Employee("Avi", 6, 30000, "HR", "ABC");
+	        Employee emp5 = new Employee("Kavi", 5, 400000, "Finance", "XYZ");
+
+
+	        List<Employee> employees = List.of(emp, emp1, emp2, emp3, emp4, emp5);
+	        System.out.println("==========================================================================");
+//	        Group employees by department.
+	        employees.stream().collect(Collectors.groupingBy(Employee::department)).entrySet().forEach(System.out::println);
+	        
+	        System.out.println("==========================================================================");
+//	        Count employees in each department.   
+	        employees.stream().collect(Collectors.groupingBy(Employee::department, Collectors.counting()))
+	        .entrySet().forEach(System.out::println);
+	        
+	        System.out.println("==========================================================================");
+//	        Find total salary of each department.
+	        employees.stream().collect(Collectors.groupingBy(Employee::department, Collectors.summingDouble(Employee::salary)))
+	        .entrySet().forEach(System.out::println);
+	        
+	        System.out.println("==========================================================================");
+//	        Find average salary per department
+	        employees.stream().collect(Collectors.groupingBy(Employee::department, Collectors.averagingDouble(Employee::salary)))
+	        .entrySet().forEach(System.out::println);
+	        
+	        System.out.println("==========================================================================");
+//	        Find highest paid employee in each department.
+	        employees.stream().collect(Collectors.groupingBy(Employee::department, Collectors.maxBy(Comparator.comparing(Employee::salary))))
+	        .entrySet().forEach(System.out::println);
+	
+	        System.out.println("=========================================================================="); 
+//	        Find lowest paid employee in each department.
+	        employees.stream().collect(Collectors.groupingBy(Employee::department, Collectors.minBy(Comparator.comparing(Employee::salary))))
+	        .entrySet().forEach(System.out::println);
+	        
+	        System.out.println("==========================================================================");
+//	        List employee names grouped by department.
+	        employees.stream().collect(Collectors.groupingBy(Employee::department,Collectors.mapping(Employee::name, Collectors.toList())))
+	        .entrySet().forEach(System.out::println);
+	
+	
+	        System.out.println("==========================================================================");
+//	        Find all employees reporting to the same manager.
+	        employees.stream().collect(Collectors.groupingBy(Employee::reportingTo))
+	        .entrySet().forEach(System.out::println);
+	        
+	        System.out.println("==========================================================================");
+//	        Count employees reporting to each manager
+	        employees.stream().collect(Collectors.groupingBy(Employee::reportingTo, Collectors.counting()))
+	        .entrySet().forEach(System.out::println);
+	        
+	        System.out.println("==========================================================================");
+//	        Group employees by reporting manager.
+	        employees.stream().collect(Collectors.groupingBy(Employee::reportingTo))
+	        .entrySet().forEach(System.out::println);
+	        
+	        
+	        System.out.println("============================Intermediate==============================================");
+
+	        System.out.println("==========================================================================");
+//	        Find department with maximum total salary.
+	        Entry<String, Double> entry = employees.stream().collect(Collectors.groupingBy(Employee::department, Collectors.summingDouble(Employee::salary)))
+	        .entrySet().stream().max(Map.Entry.comparingByValue()).get();
+	        System.out.println(entry);
+	        
+	        System.out.println("==========================================================================");
+//	        Find department with highest average salary.
+	        Entry<String, Double> entry2 = employees.stream().collect(Collectors.groupingBy(Employee::department, Collectors.averagingDouble(Employee::salary)))
+	        .entrySet().stream().max(Map.Entry.comparingByValue()).get();
+	        System.out.println(entry2);
+	        
+	        System.out.println("==========================================================================");
+//	        Find top 3 highest paid employees.
+	        employees.stream().sorted(Comparator.comparing(Employee::salary).reversed()).limit(3).forEach(System.out::println);
+	        
+	        
+	        System.out.println("==========================================================================");
+//	      	Find employees whose salary is above department average.
+	        Map<String, Double> collect = employees.stream().collect(Collectors.groupingBy(Employee::department, Collectors.averagingDouble(Employee::salary)));
+	        System.out.println(collect);
+	        employees.stream().filter(f-> f.salary()> collect.get(f.department())).forEach(System.out::println);
+	       
+	        System.out.println("==========================================================================");
+//	         Group employees by department and collect only their names.
+	        employees.stream().collect(Collectors.groupingBy(Employee::department, Collectors.mapping(Employee::name, Collectors.toList())))
+	        .entrySet().forEach(System.out::println);
+	        
+
+	        System.out.println("==========================================================================");
+//	        Group employees by department and sum their salaries.
+	        employees.stream().collect(Collectors.groupingBy(Employee::department, Collectors.summingDouble(Employee::salary)))
+	        .entrySet().forEach(System.out::println);
+	        
+	        System.out.println("==========================================================================");
+//	        Find employees grouped by salary range (e.g., <50k, 50k–100k, >100k).
+	        
+	        
+	        System.out.println("==========================================================================");
+//	        Find all employees reporting to the same manager.
+	        
+	        
+	        System.out.println("==========================================================================");
+//	        Find all employees reporting to the same manager.
+	        
+	        
+	        System.out.println("==========================================================================");
+//	        Find all employees reporting to the same manager.
+	        
+	        
+	        System.out.println("==========================================================================");
+//	        Find all employees reporting to the same manager.
+	        
+	        System.out.println("==========================================================================");
+//	        Find all employees reporting to the same manager.
+	        
+	        
+	        System.out.println("==========================================================================");
+//	        Find all employees reporting to the same manager.
+	        
+	        
+	        System.out.println("==========================================================================");
+//	        Find all employees reporting to the same manager.
+	        
+	        
+	        System.out.println("==========================================================================");
+//	        Find all employees reporting to the same manager.
+	        
+	        
+	        System.out.println("==========================================================================");
+//	        Find all employees reporting to the same manager.
+	        
+	        
+	        System.out.println("==========================================================================");
+//	        Find all employees reporting to the same manager.
+	        
+	        
+	        System.out.println("==========================================================================");
+//	        Find all employees reporting to the same manager.
+	        
+	        
+	        System.out.println("==========================================================================");
+//	        Find all employees reporting to the same manager.
+	        
+	        
+	        System.out.println("==========================================================================");
+//	        Find all employees reporting to the same manager.
+	        
+	        
+	        
+	        System.out.println("==========================================================================");
+//	        Find all employees reporting to the same manager.
+	        
+	        
+	        
+	        System.out.println("==========================================================================");
+//	        Find all employees reporting to the same manager.
+	        
+	        
+	        
+	        System.out.println("==========================================================================");
+//	        Find all employees reporting to the same manager.
+	        
+	        
+	        System.out.println("==========================================================================");
+//	        Find all employees reporting to the same manager.
+	        
+	        
+	        
+	        System.out.println("==========================================================================");
+//	        Find all employees reporting to the same manager.
+	        
+	        
+	}
+
+}

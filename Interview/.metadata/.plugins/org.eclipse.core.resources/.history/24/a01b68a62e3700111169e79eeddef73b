@@ -1,0 +1,5 @@
+package interview;
+
+public non-sealed class Bird extends SealedExample {
+
+}

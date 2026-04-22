@@ -1,0 +1,35 @@
+package interview;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Interview {
+
+	public static void main(String[] args) {
+		
+	List<Integer> list = Arrays.asList(119,186,523,435,756,676,543,996, 765);
+	list.stream().sorted(Comparator.comparing(Integer::intValue)).forEach(System.out::println);
+
+	list.stream().sorted(Comparator.comparing(Integer::intValue).reversed()).forEach(System.out::println));
+//	Group a list of strings by their length and count how many strings exist for each length.
+	List<String> words = Arrays.asList("apple", "bat", "cat", "apple", "banana");
+			words.stream().collect(Collectors.groupingBy(String::length, Collectors.counting()))
+			.entrySet()
+//			.stream().map(m-> m.setValue(words).size())
+			.forEach(System.out::println);
+			
+	words.stream().collect(Collectors.groupingBy(String::length, Collectors.toList())).entrySet().forEach(System.out::println);
+	
+			Interview.middleNumber(123);
+			
+
+	}
+	
+	public static void middleNumber(int nums) {
+		String s =String.valueOf(nums);
+		int mid = s.length()/2;
+		System.out.println(Character.getNumericValue(s.charAt(mid)));
+	}
+}

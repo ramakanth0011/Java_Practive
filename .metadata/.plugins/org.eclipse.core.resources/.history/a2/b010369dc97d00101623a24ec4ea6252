@@ -1,0 +1,19 @@
+package com.example.demo.co.entity;
+
+import org.springframework.data.annotation.Id;
+
+import jakarta.persistence.Entity;
+import lombok.Data;
+
+@Entity
+@Data
+public class Employee {
+	
+	@Id
+	private int empId;
+	
+	private String name;
+	private double salary;
+	
+
+}

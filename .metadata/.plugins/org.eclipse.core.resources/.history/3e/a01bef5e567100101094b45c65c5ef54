@@ -1,0 +1,15 @@
+package string;
+
+public class RomantoInteger13 {
+	 public int romanToInt(String s) {
+		 
+		 for(int i=0; i<=s.length()-1; i++) {
+			 if(s.charAt(i)=='I') {
+				 
+			 }
+		 }
+		return 0;
+	        
+	    }
+
+}

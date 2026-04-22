@@ -1,0 +1,60 @@
+package com.example.demo.co.controller;
+
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.ObjectUtils;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.co.entity.Employee;
+import com.example.demo.co.service.EmployeeService;
+
+@RestController
+@RequestMapping("emp")
+public class EmployeeController {
+
+	private final EmployeeService employeeService;
+
+	public EmployeeController(EmployeeService employeeService) {
+		this.employeeService = employeeService;
+	}
+
+	@GetMapping("/get/employee")
+	public List<Employee> getEmployee() {
+		return employeeService.getAllEmployee();
+
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<Employee> getEmpById(@PathVariable Long id) {
+		return employeeService.getEmployeById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+
+	}
+
+	@PostMapping("add/employee")
+	public ResponseEntity<Employee> addEmployee(@RequestBody Employee emp) {
+
+		if (ObjectUtils.isEmpty(emp)) {
+			return null;
+		}
+		employeeService.addEmployee(emp);
+
+	}
+
+	@PutMapping("{id}")
+	public ResponseEntity<Employee> updateEmployee(@PathVariable Long id, @RequestBody Employee emp) {
+		try {
+			return ResponseEntity.ok(employeeService.updateEmployee(emp));
+		} catch (Exception e) {
+			return ResponseEntity.notFound().build();
+		}
+
+	}
+
+}

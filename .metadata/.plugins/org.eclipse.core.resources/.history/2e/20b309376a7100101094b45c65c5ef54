@@ -1,0 +1,57 @@
+package string;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class RomantoInteger13 {
+	 public int romanToInt(String s){
+		 int result = 0;
+		 Map<Character, Integer> map = new HashMap<>();
+		 map.put('I', 1);
+		 map.put('V', 5);
+		 map.put('X', 10);
+		 map.put('L', 50);
+		 map.put('C', 100);
+		 map.put('O', 500);
+		 map.put('M', 1000);
+		 
+		 for(int i=1; i<=s.length()-1; i++) {
+			 char prev = s.charAt(i-1);
+			 char curr = s.charAt(i);
+			 if(map.get(prev)<map.get(curr)) {
+				 int ss =map.get(curr) - map.get(prev);
+				result = result - ss;
+			 }else if(map.get(prev)>map.get(curr)) {
+				 int ss =map.get(curr) + map.get(prev);
+					result = result + ss;
+			 }
+//			 if(charAt=='I') {
+//				 result = result + 1;
+//			 }else if(charAt=='V') {
+//				 result = result + 5;
+//			 }
+//			 else if(charAt=='X') {
+//				 result = result + 10;
+//			 }
+//			 else if(charAt=='L') {
+//				 result = result + 50;
+//			 }
+//			 else if(charAt=='C') {
+//				 result = result + 100;
+//			 }
+//			 else if(charAt=='D') {
+//				 result = result + 500;
+//			 }
+//			 else if(charAt=='M') {
+//				 result = result + 1000;
+//			 }
+		 }
+		return result;
+	        
+	    }
+	 public static void main(String[]args) {
+		 RomantoInteger13 s = new RomantoInteger13();
+		 System.out.println(s.romanToInt("LVIII"));
+	 }
+
+}

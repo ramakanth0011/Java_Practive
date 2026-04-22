@@ -1,0 +1,6 @@
+package interview;
+
+
+	public record Employee(String name, int id, long salary, 
+            String department, String reportingTo) { }
+   

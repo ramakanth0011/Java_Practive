@@ -1,0 +1,26 @@
+package com.example.demo.co.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.co.service.PractiseService;
+
+@RestController
+@RequestMapping("/api")
+public class HelloController {
+	
+	@Autowired
+	private PractiseService practiseService;
+	
+	@GetMapping("/hello")
+	public String hello() {
+		
+		String s = "new term";
+		String d = "is created";
+		return practiseService.create(s, d);
+	}
+	
+
+}

@@ -1,0 +1,25 @@
+package immutable;
+
+public final class ImmutableDemo {
+	
+	private final int id = 0;
+	private final String name = "";
+	private final String phone = "";
+	
+	public ImmutableDemo() {
+		
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+	
+}

@@ -1,0 +1,27 @@
+package fuctional_interface;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.OptionalInt;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+public class test {
+
+	public static void main(String []args) {
+		int s = FunctionalInterfac.add(1,3,4);
+		//int a =s.add(5, 6,5);
+		System.out.println();
+		
+		int [] nums = {1,3,546,78,9,79,9};
+		
+		// Convert the array to a list using Arrays.stream() and toList()
+//        List<Integer> numsList = Arrays.stream(nums).boxed().collect(Collectors.toList());
+
+        // Find the maximum element using stream and max()
+		List<Integer>	 maxElement = Arrays.stream(nums).distinct().collect(Collectors.toList()); 
+
+		System.out.println(maxElement);
+		
+	}
+}

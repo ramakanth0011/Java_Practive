@@ -1,0 +1,68 @@
+package leenaTest;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class practise {
+
+	
+	public static void main(String args[]) {
+
+		String str = "Hello There. ** There how are you£&.. ** ";
+		StringBuilder stringB = new StringBuilder(str);
+		
+		System.out.println(stringB.reverse());
+
+		String st = "abcabcbb";
+		Map<Character, Integer>map = new HashMap<>();
+		for(int i =0; i < st.length()-1;i++) {
+			  char c = st.charAt(i);
+			map.put(c, i);
+		}
+		
+		
+//		==============================================================================
+
+		
+		String updatesStr = str.replaceAll("[^a-zA-Z0-9//s]", " ").toUpperCase();
+//		 Arrays.asList(updatesStr.split(" ")).stream()
+//				.collect(Collectors.groupingBy(Function.identity(),Collectors.counting())).entrySet().forEach(p->System.out.println(p));
+
+//		===============================================================================
+
+//		updatesStr.chars().mapToObj(p -> (char) p).filter(f->!f.isWhitespace(f))
+//				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet().forEach(p -> {
+//					if (p.getValue() > 4)
+//						System.out.println(p);
+//					
+//				});
+//    ====================================================================================
+		
+//		List<Integer> numbers = List.of(1,2,3,4,5,2,1,2,3,6,7,0,0,7,6,4);
+//		Map<Integer, Integer> map = new HashMap<>();
+//		map.put(1, 1);
+//		map.put(1, 2);
+//		map.put(2, 3);
+//		map.entrySet().stream().forEach(p->System.out.println(p));
+		for(int i=1; i<=50; i++) {
+			if(i%15 == 0) {
+				System.out.println("FizzBuzz");
+			}
+			else if(i%5 == 0) {
+				System.out.println("Buzz");
+			}
+			else if(i%3 == 0) {
+				System.out.println("Fizz");
+			}
+			else {
+				System.out.println(i);
+			}
+		}
+		
+		
+		
+		
+		
+	}
+
+}

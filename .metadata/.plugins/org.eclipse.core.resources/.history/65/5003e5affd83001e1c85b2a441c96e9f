@@ -1,0 +1,26 @@
+package streams;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class Sorting {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		Sort a list of integers in ascending order using Java Streams.
+		List<Integer> numbers = Arrays.asList(3, 1, 4, 1, 5, 9, 2, 6, 5);
+		numbers.stream().sorted(Comparator.naturalOrder()).forEach(System.out::print);
+		
+//		Sort a list of strings in descending order of length using Java Streams.
+		List<String> words = Arrays.asList("apple", "banana", "orange", "grape");
+		Map<String, Long> s =words.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		System.out.println(s.containsKey(s));
+		
+		
+	}
+
+}

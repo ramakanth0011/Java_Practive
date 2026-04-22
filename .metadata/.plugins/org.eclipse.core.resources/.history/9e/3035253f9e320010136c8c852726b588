@@ -1,0 +1,14 @@
+package immutable;
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ImmutableDemo demo = new ImmutableDemo(1,"rama","978247357");
+		System.out.println(demo.toString());
+		ImmutableDemo demo1 = new ImmutableDemo(2,"rama","978247357");
+		System.out.println(dem1.toString());
+		
+	}
+
+}

@@ -1,0 +1,28 @@
+package streams;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
+public class MapStream {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		Find the most common word in a list of strings using Java Streams and display its frequency.
+		List<String> words = Arrays.asList("apple", "banana", "apple", "orange", "banana", "apple");
+		Map <String, Long>mapWord =words.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+		//Map.Entry<String, Long> mostCommonEntry=mapWord.entrySet().stream().max(Map.Entry.comparingByValue()).get();
+		
+		List<Map.Entry<String, Long>> mostCommonEntries =mapWord.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).limit(2).collect(Collectors.toList());
+		IntStream a =words.stream().flatMapToInt(String :: chars);
+		System.out.println(mostCommonEntries);
+		
+	}
+
+}

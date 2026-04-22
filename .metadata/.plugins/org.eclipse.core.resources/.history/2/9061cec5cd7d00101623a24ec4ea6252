@@ -1,0 +1,31 @@
+package com.example.demo.co.controller;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.co.entity.Employee;
+import com.example.demo.co.service.EmployeeService;
+
+@RestController
+@RequestMapping("emp")
+public class EmployeeController {
+	
+
+
+	private final EmployeeService employeeService;
+	
+	public EmployeeController(EmployeeService employeeService) {
+		super();
+		this.employeeService = employeeService;
+	}
+	
+	@PostMapping("/add/employee")
+	public Employee saveEmployee() {
+		
+		
+		return null;
+		
+	}
+
+}

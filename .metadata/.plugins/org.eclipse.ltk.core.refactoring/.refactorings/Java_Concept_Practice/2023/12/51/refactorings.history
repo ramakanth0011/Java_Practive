@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;streams.Sum&apos; to &apos;SumStreak&apos;&#x0D;&#x0A;- Original project: &apos;Java_Concept_Practice&apos;&#x0D;&#x0A;- Original element: &apos;streams.Sum&apos;&#x0D;&#x0A;- Renamed element: &apos;streams.SumStreak&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Sum&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;streams{Sum.java[Sum" matchStrategy="1" name="SumStreak" qualified="false" references="true" similarDeclarations="false" stamp="1702830004617" textual="false" version="1.0"/>
+</session>
